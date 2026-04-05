@@ -1,0 +1,226 @@
+[
+  {
+    "name": "Spinach",
+    "image": "food_1.png",
+    "price": 20,
+    "description": "Fresh green spinach leaves rich in iron",
+    "category": "Leafy"
+  },
+  {
+    "name": "Cabbage",
+    "image": "food_2.png",
+    "price": 25,
+    "description": "Healthy cabbage full of nutrients",
+    "category": "Leafy"
+  },
+  {
+    "name": "Fenugreek Leaves",
+    "image": "food_3.png",
+    "price": 15,
+    "description": "Fresh methi leaves for daily cooking",
+    "category": "Leafy"
+  },
+  {
+    "name": "Lettuce",
+    "image": "food_4.png",
+    "price": 30,
+    "description": "Crispy lettuce perfect for salads",
+    "category": "Leafy"
+  },
+  {
+    "name": "Carrot",
+    "image": "food_5.png",
+    "price": 40,
+    "description": "Fresh carrots rich in vitamins",
+    "category": "Root"
+  },
+  {
+    "name": "Beetroot",
+    "image": "food_6.png",
+    "price": 35,
+    "description": "Healthy beetroot for juice and cooking",
+    "category": "Root"
+  },
+  {
+    "name": "Potato",
+    "image": "food_7.png",
+    "price": 30,
+    "description": "Staple vegetable used in many dishes",
+    "category": "Root"
+  },
+  {
+    "name": "Radish",
+    "image": "food_8.png",
+    "price": 20,
+    "description": "Fresh radish with strong flavor",
+    "category": "Root"
+  },
+  {
+    "name": "Tomato",
+    "image": "food_9.png",
+    "price": 25,
+    "description": "Fresh red tomatoes",
+    "category": "Fruit Veg"
+  },
+  {
+    "name": "Brinjal",
+    "image": "food_10.png",
+    "price": 30,
+    "description": "Purple eggplant for cooking",
+    "category": "Fruit Veg"
+  },
+  {
+    "name": "Capsicum",
+    "image": "food_11.png",
+    "price": 50,
+    "description": "Colorful bell peppers",
+    "category": "Fruit Veg"
+  },
+  {
+    "name": "Cucumber",
+    "image": "food_12.png",
+    "price": 20,
+    "description": "Cool and fresh cucumber",
+    "category": "Fruit Veg"
+  },
+  {
+    "name": "Green Peas",
+    "image": "food_13.png",
+    "price": 60,
+    "description": "Sweet green peas",
+    "category": "Seeds & Pods"
+  },
+  {
+    "name": "French Beans",
+    "image": "food_14.png",
+    "price": 45,
+    "description": "Fresh green beans",
+    "category": "Seeds & Pods"
+  },
+  {
+    "name": "Cluster Beans",
+    "image": "food_15.png",
+    "price": 40,
+    "description": "Healthy guar beans",
+    "category": "Seeds & Pods"
+  },
+  {
+    "name": "Corn (Maka)",
+    "image": "food_16.png",
+    "price": 30,
+    "description": "Sweet corn rich in fiber",
+    "category": "Seeds & Pods"
+  },
+  {
+    "name": "Onion",
+    "image": "food_17.png",
+    "price": 30,
+    "description": "Essential kitchen vegetable",
+    "category": "Bulb"
+  },
+  {
+    "name": "Garlic",
+    "image": "food_18.png",
+    "price": 120,
+    "description": "Strong flavor garlic",
+    "category": "Bulb"
+  },
+  {
+    "name": "Ginger",
+    "image": "food_19.png",
+    "price": 80,
+    "description": "Fresh ginger root",
+    "category": "Bulb"
+  },
+  {
+    "name": "Spring Onion",
+    "image": "food_20.png",
+    "price": 25,
+    "description": "Green onion for garnishing",
+    "category": "Bulb"
+  },
+  {
+    "name": "Cauliflower",
+    "image": "food_21.png",
+    "price": 35,
+    "description": "Fresh cauliflower",
+    "category": "Flower"
+  },
+  {
+    "name": "Broccoli",
+    "image": "food_22.png",
+    "price": 80,
+    "description": "Healthy green broccoli",
+    "category": "Flower"
+  },
+  {
+    "name": "Banana Flower",
+    "image": "food_23.png",
+    "price": 50,
+    "description": "Used in traditional dishes",
+    "category": "Flower"
+  },
+  {
+    "name": "Drumstick",
+    "image": "food_24.png",
+    "price": 40,
+    "description": "Moringa vegetable",
+    "category": "Flower"
+  },
+  {
+    "name": "Wheat (Gahu)",
+    "image": "food_25.png",
+    "price": 60,
+    "description": "Staple grain for flour",
+    "category": "Grains"
+  },
+  {
+    "name": "Rice",
+    "image": "food_26.png",
+    "price": 70,
+    "description": "Basic food grain",
+    "category": "Grains"
+  },
+  {
+    "name": "Jowar",
+    "image": "food_27.png",
+    "price": 50,
+    "description": "Healthy millet grain",
+    "category": "Grains"
+  },
+  {
+    "name": "Bajra",
+    "image": "food_28.png",
+    "price": 45,
+    "description": "High fiber millet",
+    "category": "Grains"
+  },
+  {
+    "name": "Bottle Gourd",
+    "image": "food_29.png",
+    "price": 30,
+    "description": "Light and healthy vegetable",
+    "category": "Others"
+  },
+  {
+    "name": "Bitter Gourd",
+    "image": "food_30.png",
+    "price": 35,
+    "description": "Healthy karela",
+    "category": "Others"
+  },
+  {
+    "name": "Pumpkin",
+    "image": "food_31.png",
+    "price": 40,
+    "description": "Sweet pumpkin",
+    "category": "Others"
+  },
+  {
+    "name": "Snake Gourd",
+    "image": "food_32.png",
+    "price": 30,
+    "description": "Long green vegetable",
+    "category": "Others"
+  }
+]

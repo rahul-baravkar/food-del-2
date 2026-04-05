@@ -1,0 +1,20 @@
+
+// 1) Model:-> because the model is not intract with direct database
+// schema is a blueprint
+
+// 2) What is the use of a Model?
+
+// A Model allows you to perform all CRUD operations:
+
+/*************************** fs (file system) ****************/
+/*
+fs is a built-in Node.js module that allows your JavaScript code to interact with files and folders on your computer/server.
+
+You use fs whenever your application needs to:
+
+✔ Read a file
+✔ Create a file
+✔ Update a file
+✔ Delete a file
+✔ Work with folders (directories)
+✔ Store data locally */

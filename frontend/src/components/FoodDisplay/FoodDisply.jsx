@@ -44,7 +44,7 @@ const FoodDisply = ({ category }) => {
                     </p>
                     <div className="flex justify-between">
                       <p className="font-bold text-red-400 mt-2 text-xl">
-                        {item.price}₹
+                        {item.price}₹ kg
                       </p>
 
                       {!cartItems[String(item._id)] ? (

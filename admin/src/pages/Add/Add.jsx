@@ -2,10 +2,11 @@ import axios from "axios";
 import { assets } from "../../assets/assets";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { useContext } from "react";
+import { AdminContext } from "../../context/AdminContext";
 
 const Add = () => {
-  const url = "https://food-del-2-backend-znom.onrender.com";
-
+  const {url} = useContext(AdminContext)
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
     name: "",

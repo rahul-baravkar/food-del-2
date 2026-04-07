@@ -18,4 +18,3 @@ export const assets ={
     bag_icon
 }
 
-export const url = 'https://food-del-2-backend-znom.onrender.com'

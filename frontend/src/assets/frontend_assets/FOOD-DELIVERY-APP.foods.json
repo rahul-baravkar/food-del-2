@@ -1,0 +1,300 @@
+[{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38857"
+  },
+  "name": "पालक",
+  "image": "food_1.png",
+  "price": 10,
+  "description": "Fresh green spinach leaves rich in iron",
+  "category": "पत्तेदार"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38858"
+  },
+  "name": "पत्ता गोभी",
+  "image": "food_2.png",
+  "price": 25,
+  "description": "Healthy cabbage full of nutrients",
+  "category": "पत्तेदार"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38859"
+  },
+  "name": "मेथी",
+  "image": "food_3.png",
+  "price": 15,
+  "description": "Fresh methi leaves for daily cooking",
+  "category": "पत्तेदार"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a3885a"
+  },
+  "name": "सलाद",
+  "image": "food_4.png",
+  "price": 30,
+  "description": "Crispy lettuce perfect for salads",
+  "category": "पत्तेदार"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a3885b"
+  },
+  "name": "गाजर",
+  "image": "food_5.png",
+  "price": 40,
+  "description": "Fresh carrots rich in vitamins",
+  "category": "जड़"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a3885c"
+  },
+  "name": "बिट",
+  "image": "food_6.png",
+  "price": 35,
+  "description": "Healthy beetroot for juice and cooking",
+  "category": "जड़"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a3885d"
+  },
+  "name": "आलू",
+  "image": "food_7.png",
+  "price": 30,
+  "description": "Staple vegetable used in many dishes",
+  "category": "जड़"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a3885e"
+  },
+  "name": "मूली",
+  "image": "food_8.png",
+  "price": 20,
+  "description": "Fresh radish with strong flavor",
+  "category": "जड़"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a3885f"
+  },
+  "name": "टमाटर",
+  "image": "food_9.png",
+  "price": 25,
+  "description": "Fresh red tomatoes",
+  "category": "फल"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38860"
+  },
+  "name": "बैंगन",
+  "image": "food_10.png",
+  "price": 30,
+  "description": "Purple eggplant for cooking",
+  "category": "फल"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38861"
+  },
+  "name": "शिमला मिर्च",
+  "image": "food_11.png",
+  "price": 50,
+  "description": "Colorful bell peppers",
+  "category": "फल"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38862"
+  },
+  "name": "खीरा",
+  "image": "food_12.png",
+  "price": 20,
+  "description": "Cool and fresh cucumber",
+  "category": "फल"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38863"
+  },
+  "name": "हरे मटर",
+  "image": "food_13.png",
+  "price": 60,
+  "description": "Sweet green peas",
+  "category": "बीज और फली"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38864"
+  },
+  "name": "श्रवण घेवडा",
+  "image": "food_14.png",
+  "price": 45,
+  "description": "Fresh green beans",
+  "category": "बीज और फली"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38865"
+  },
+  "name": "गवार",
+  "image": "food_15.png",
+  "price": 40,
+  "description": "Healthy guar beans",
+  "category": "बीज और फली"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38866"
+  },
+  "name": "कॉर्न",
+  "image": "food_16.png",
+  "price": 30,
+  "description": "Sweet corn rich in fiber",
+  "category": "बीज और फली"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38867"
+  },
+  "name": "कांदा",
+  "image": "food_17.png",
+  "price": 30,
+  "description": "Essential kitchen vegetable",
+  "category": "कंद"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38868"
+  },
+  "name": "लसूण",
+  "image": "food_18.png",
+  "price": 120,
+  "description": "Strong flavor garlic",
+  "category": "कंद"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38869"
+  },
+  "name": "अदरक",
+  "image": "food_19.png",
+  "price": 80,
+  "description": "Fresh ginger root",
+  "category": "कंद"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a3886a"
+  },
+  "name": "कांद्याची पात",
+  "image": "food_20.png",
+  "price": 25,
+  "description": "Green onion for garnishing",
+  "category": "कंद"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a3886b"
+  },
+  "name": "फुलकोबी",
+  "image": "food_21.png",
+  "price": 35,
+  "description": "Fresh cauliflower",
+  "category": "Flowers"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a3886c"
+  },
+  "name": "हरी फूलगोभी",
+  "image": "food_22.png",
+  "price": 80,
+  "description": "Healthy green broccoli",
+  "category": "Flower"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a3886d"
+  },
+  "name": "कदली पुष्प",
+  "image": "food_23.png",
+  "price": 50,
+  "description": "Used in traditional dishes",
+  "category": "Flower"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a3886e"
+  },
+  "name": "शेवगा",
+  "image": "food_24.png",
+  "price": 40,
+  "description": "Moringa vegetable",
+  "category": "Flower"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a3886f"
+  },
+  "name": "गेहूं",
+  "image": "food_25.png",
+  "price": 60,
+  "description": "Staple grain for flour",
+  "category": "Grains"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38871"
+  },
+  "name": "ज्वार",
+  "image": "food_27.png",
+  "price": 50,
+  "description": "Healthy millet grain",
+  "category": "Grains"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38872"
+  },
+  "name": "बाजरे",
+  "image": "food_28.png",
+  "price": 45,
+  "description": "High fiber millet",
+  "category": "Grains"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38873"
+  },
+  "name": "लौकी",
+  "image": "food_29.png",
+  "price": 30,
+  "description": "Light and healthy vegetable",
+  "category": "Others"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38874"
+  },
+  "name": "करेला",
+  "image": "food_30.png",
+  "price": 35,
+  "description": "Healthy karela",
+  "category": "Others"
+},
+{
+  "_id": {
+    "$oid": "69cfd5573e085407e8a38875"
+  },
+  "name": "कद्दू",
+  "image": "food_31.png",
+  "price": 40,
+  "description": "Sweet pumpkin",
+  "category": "Others"
+}]

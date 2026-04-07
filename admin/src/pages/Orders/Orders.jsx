@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { assets } from "../../assets/assets";
+import { AdminContext } from "../../context/AdminContext";
 
 const Orders = () => {
   const [data, setData] = useState([]);
-  const url = "https://food-del-2-backend-znom.onrender.com";
+  const {url} = useContext(AdminContext)
 
   const fetchAllOrders = async () => {
     const response = await axios.get(url + "/api/order/list");
@@ -82,7 +83,7 @@ const Orders = () => {
 
             {/* Amount */}
             <p className="text-sm md:text-sm text-gray-500">
-              ${order.amount}.00
+              ₹{order.amount}.00
             </p>
 
             {/* Status select */}

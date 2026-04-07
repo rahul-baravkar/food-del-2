@@ -1,10 +1,12 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import UpdateItems from "./UpdateItems";
+import { AdminContext } from "../../context/AdminContext";
 const List = () => {
-  const url = "https://food-del-2-backend-znom.onrender.com";
+  const {url} = useContext(AdminContext)
+  
 
   const [list, setList] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null); // ✅ FOR MODAL
@@ -72,7 +74,7 @@ const List = () => {
 
           <p>{item.name}</p>
           <p>{item.category}</p>
-          <p>{item.price}₹ kg</p>
+          <p>₹{item.price} kg</p>
 
           {/* DELETE */}
           <div className="flex justify-center">

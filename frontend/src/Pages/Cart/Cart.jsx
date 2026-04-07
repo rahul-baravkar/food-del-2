@@ -46,9 +46,9 @@ const Cart = () => {
                  
 
                   <p>{item.name}</p>
-                  <p className="hidden md:block">${item.price}</p>
+                  <p className="hidden md:block">₹{item.price}</p>
                   <p>{cartItems[item._id]}</p>
-                  <p className="hidden lg:block">${item.price * cartItems[item._id]}</p>
+                  <p className="hidden lg:block">₹{item.price * cartItems[item._id]}</p>
 
                   <button
                     className="text-red-500 font-bold text-xl"
@@ -76,21 +76,21 @@ const Cart = () => {
 
           <div className="cart-total-details flex justify-between mt-3">
             <p>Subtotal</p>
-            <p>${getTotalAmount()}</p>
+            <p>₹{getTotalAmount()}</p>
           </div>
 
           <hr className="mt-1" />
 
           <div className="cart-total-details flex justify-between mt-3">
             <p>Delivery Fee</p>
-            {getTotalAmount() > 0? <p>${2}</p>:<p>${0}</p>}
+            {getTotalAmount() > 0? <p>₹{2}</p>:<p>₹{0}</p>}
           </div>
 
           <hr className="mt-1" />
 
           <div className="cart-total-details flex justify-between mt-3">
             <b>Total</b>
-            {getTotalAmount() > 0? <b>${getTotalAmount() + 2}</b>:<b>${0}</b>}
+            {getTotalAmount() > 0? <b>₹{getTotalAmount() + 2}</b>:<b>₹{0}</b>}
           </div>
 
           <button className="mt-5 bg-red-400 rounded-sm py-2 px-2 w-full md:w-auto" onClick={() => navigate("/order")}>

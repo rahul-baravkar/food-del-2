@@ -37,7 +37,7 @@ const loginUser = async (req, res) => {
     const token = createToken(user._id)
     
    
-    res.json({success:true , token , message:"Token generate successfully"})
+    res.json({success:true , token , message:"User Login Successfully"})
 
         
     } catch (error) {
@@ -104,5 +104,11 @@ const registerUser = async (req, res) => {
 
 }
 
+const adminUser = async (req , res) => {
 
-export { loginUser, registerUser }
+
+
+}
+
+
+export { loginUser, registerUser , adminUser }

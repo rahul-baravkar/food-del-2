@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { AdminContext } from "../../context/AdminContext";
 
 const UpdateItems = ({ item, onClose, fetchList }) => {
-  const url = "https://food-del-2-backend-znom.onrender.com";
-
+  const {url} = useContext(AdminContext)
   const [data, setData] = useState({
     name: "",
     category: "",

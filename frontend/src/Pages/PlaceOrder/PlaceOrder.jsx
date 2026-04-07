@@ -19,7 +19,7 @@ const PlaceOrder = () => {
     phone: ""
   })
 
-  const placeholder = async (event) => {
+  const PlaceOrder = async (event) => {
     event.preventDefault();
 
     let orderItems = [];
@@ -80,7 +80,7 @@ const PlaceOrder = () => {
     <div className="container mx-auto w-full max-w-[1080px] px-4 mt-32 grid grid-cols-1 md:grid-cols-2 gap-10 pb-36">
 
       {/* LEFT FORM */}
-      <form onSubmit={placeholder} className="left w-full">
+      <form onSubmit={PlaceOrder} className="left w-full">
         <h1 className="font-bold text-black text-2xl md:text-3xl mb-6">Delivery Information</h1>
 
         {/* NAME FIELDS */}
@@ -191,21 +191,21 @@ const PlaceOrder = () => {
 
           <div className="cart-total-details flex justify-between mt-3">
             <p>Subtotal</p>
-            <p>${getTotalAmount()}</p>
+            <p>₹{getTotalAmount()}</p>
           </div>
 
           <hr className="mt-1" />
 
           <div className="cart-total-details flex justify-between mt-3">
             <p>Delivery Fee</p>
-            {getTotalAmount() > 0 ? <p>$2</p> : <p>$0</p>}
+            {getTotalAmount() > 0 ? <p>₹2</p> : <p>₹0</p>}
           </div>
 
           <hr className="mt-1" />
 
           <div className="cart-total-details flex justify-between mt-3">
             <b>Total</b>
-            {getTotalAmount() > 0 ? <b>${getTotalAmount() + 2}</b> : <b>$0</b>}
+            {getTotalAmount() > 0 ? <b>₹{getTotalAmount() + 2}</b> : <b>₹0</b>}
           </div>
 
         </div>

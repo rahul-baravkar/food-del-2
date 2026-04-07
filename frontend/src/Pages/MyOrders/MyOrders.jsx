@@ -47,7 +47,7 @@ const MyOrders = () => {
               <p className="text-gray-500 text-sm">
                 {new Date(order.date).toLocaleString("en-IN")}
               </p>
-              <p className="text-sm text-gray-500 ml-8">${order.amount}.00</p>
+              <p className="text-sm text-gray-500 ml-8">₹{order.amount}.00</p>
               <p className="text-sm text-gray-500 ml-3">
                 items: {order.items.length}
               </p>

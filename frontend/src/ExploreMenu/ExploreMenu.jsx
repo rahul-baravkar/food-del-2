@@ -7,13 +7,11 @@ const ExploreMenu = ({ category, setCategory }) => {
       className=" mb-10 ml-24 -my-10 text-black flex-col gap-4 "
       id="menu-bar"
     >
-      <h1 className="font-bold text-black text-6xl mt-3">Explore our menu</h1>
+      <h1 className="font-bold text-black text-6xl mt-3">Explore Our Fresh Vegetables</h1>
 
       <p className="mt-8">
-        Choose from a diverse menu featuring a deletable array of dishes crafted
-        with the finest ingredients and culinary expertise. Our mission is to
-        satisfy your cravings and elevate your dining experience, one delicious
-        meal at a time.
+       Browse our wide selection of green, organic, and seasonal vegetables. From leafy greens to root vegetables,<br/>
+        we bring everything fresh from farm to your kitchen.
       </p>
 
     

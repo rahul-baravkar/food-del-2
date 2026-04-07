@@ -124,23 +124,23 @@ export const assets = {
 
 export const menu_list = [
     {
-        menu_name: "Leafy",
+        menu_name: "पत्तेदार",
         menu_image: menu_1
     },
     {
-        menu_name: "Root",
+        menu_name: "जड़",
         menu_image: menu_2
     },
     {
-        menu_name: "Fruits",
+        menu_name: "फल",
         menu_image: menu_3
     },
     {
-        menu_name: "Seeds & Pods",
+        menu_name: "बीज और फली",
         menu_image: menu_4
     },
     {
-        menu_name: "Bulb",
+        menu_name: "कंद",
         menu_image: menu_5
     },
     {
@@ -393,11 +393,11 @@ export const food_list = [
   // 🥬 Leafy Vegetables
   {
     _id: "1",
-    name: "Spinach",
+    name: "पालक",
     image: food_1,
     price: 20,
     description: "Fresh green spinach leaves rich in iron",
-    category: "Leafy"
+    category: "पत्तेदार"
   },
   {
     _id: "2",

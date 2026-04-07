@@ -11,7 +11,7 @@ const FoodDisply = ({ category }) => {
   return (
     <div className="foodlist ">
       <h1 className="mt-8 font-bold text-black text-3xl mx-24">
-        Top dishes near you
+        Fresh Vegetables Near You
       </h1>
 
       <div className="mx-24 grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-6 mt-5">

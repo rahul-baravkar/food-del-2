@@ -2,11 +2,11 @@ import userModel from "../models/userModel.js";
 import bcrypt from 'bcrypt'
 import validator from 'validator'
 import jwt from "jsonwebtoken";
+import adminModel from "../models/adminModel.js";
 
 
 // Generate Token
 const createToken = (id) => {
-
     // eslint-disable-next-line no-undef
     return jwt.sign({id}, process.env.JWT_SECRET)
 }
@@ -24,8 +24,6 @@ const loginUser = async (req, res) => {
         return res.json({success:false ,message:"User Dose't exits" })
     } 
 
-    
-
     // CHECK PASSWORD MATCH
     const isMatch = await bcrypt.compare(password , user.password)
     
@@ -33,11 +31,10 @@ const loginUser = async (req, res) => {
         return res.json({success:false , message:"Invalid credentials"})
     }
 
-
     const token = createToken(user._id)
     
    
-    res.json({success:true , token , message:"User Login Successfully"})
+    res.json({success:true , token , message:"User Login Successfully ✅"})
 
         
     } catch (error) {
@@ -46,9 +43,7 @@ const loginUser = async (req, res) => {
         res.json({success:false , message:"Error"})
         
     }
-    
 }
-
 
 // REGISTER FUNCTION 
 const registerUser = async (req, res) => {
@@ -92,7 +87,7 @@ const registerUser = async (req, res) => {
         const token = createToken(user._id)
        
         
-        res.json({ success: true, token })
+        res.json({ success: true, token , message:"User Register Successfull ✅" })
 
     } catch (error) {
         console.log(error)
@@ -104,11 +99,38 @@ const registerUser = async (req, res) => {
 
 }
 
-const adminUser = async (req , res) => {
 
+const adminUser = async (req, res) => {
+  const { email, password } = req.body;
 
+  try {
+    const adminEmail = process.env.ADMIN_EMAIL;
+    const adminPassword = process.env.ADMIN_PASSWORD;
 
-}
+    // DEBUG (add this 👇)
+    
 
+    if (email !== adminEmail) {
+      return res.json({ success: false, message: "Admin not Exist" });
+    }
+
+    // if plain password
+    if (password !== adminPassword) {
+      return res.json({ success: false, message: "Invalid Credentials" });
+    }
+
+    const token = createToken(email);
+
+    res.json({
+      success: true,
+      token,
+      message: "Admin Login Successfully",
+    });
+
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error" });
+  }
+};
 
 export { loginUser, registerUser , adminUser }

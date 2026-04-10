@@ -4,6 +4,7 @@ import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
+
 const placeOrder = async (req, res) => {
   const frontend_url = "http://localhost:5173";
 
@@ -13,11 +14,10 @@ const placeOrder = async (req, res) => {
       items: req.body.items,
       amount: req.body.amount,
       address: req.body.address,
-    
     });
-    
 
     await newOrder.save();
+
     await userModel.findByIdAndUpdate(req.userId, { cartData: {} });
 
     const line_items = req.body.items.map((item) => ({
@@ -26,34 +26,45 @@ const placeOrder = async (req, res) => {
         product_data: {
           name: item.name,
         },
-        unit_amount: item.price * 100 * 80,
+        unit_amount: Number(item.price) * 100,
       },
-      quantity: item.quantity,
+      quantity: Number(item.quantity),
     }));
-   
 
+    // ✅ DELIVERY LOGIC
+    const deliveryCharge =
+      req.body.amount > 1000 ? 100 : 200;
+
+
+    // ✅ ADD DELIVERY ITEM
     line_items.push({
       price_data: {
         currency: "inr",
-        product_data: { name: "Delivery Charges" },
-        unit_amount: 2 * 80 * 100,
+        product_data: {
+           name: "Delivery Charges",
+           description: "₹1000 से ऊपर ऑर्डर पर ₹100 डिलीवरी, अन्यथा ₹200।",
+        
+           },
+        
+        unit_amount: deliveryCharge * 100,
       },
       quantity: 1,
     });
-   
+
 
     const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"], // recommended
       line_items,
       mode: "payment",
       success_url: `${frontend_url}/verify?success=true&orderId=${newOrder._id}`,
       cancel_url: `${frontend_url}/verify?success=false&orderId=${newOrder._id}`,
     });
-    
 
     res.json({ success: true, session_url: session.url });
+
   } catch (error) {
-    console.log(error);
-    res.json({ success: false, message: "Error" });
+    console.log("STRIPE ERROR:", error);
+    res.json({ success: false, message: error.message });
   }
 };
 
@@ -78,7 +89,6 @@ const verifyOrder = async (req, res) => {
   }
 };
 
-
 // USERS ORDER 
 const userOrders = async (req,res) => {
 
@@ -96,7 +106,6 @@ const userOrders = async (req,res) => {
   }
 }
 
-
 //LIST OF ORDERSDATA FOR ADMIN PANEL
   const listOrders = async (req,res) => {
  
@@ -113,16 +122,10 @@ const userOrders = async (req,res) => {
       res.json({success:false , message:"Error"})
       
     }
-   
-    
-
-
+  
   }
 
-
   // CHANGE STATUS IN DATABASE 
-
-
   const updateStatus = async (req, res) => {
   try {
     const { orderId, status } = req.body;
@@ -135,7 +138,7 @@ const userOrders = async (req,res) => {
 
    
 
-    res.json({ success: true, message: "Status Updated" });
+    res.json({ success: true, message: `Status: ${status}`,});
 
   } catch (error) {
     console.error(error);
@@ -143,4 +146,20 @@ const userOrders = async (req,res) => {
   }
 };
 
-export { placeOrder, verifyOrder , userOrders , listOrders , updateStatus };
+
+// REMOVE ORDERS FROM ADMIN PANEL
+const removeOrders = async (req , res) => {
+
+  const {id} = req.body
+  try {
+    await orderModel.findByIdAndDelete(id)
+    res.json({success:true , message:"Order Removed Successfull"})
+
+    
+  } catch (error) {
+    res.json({success:false , message:"Error"})
+  }
+
+}
+
+export { placeOrder, verifyOrder , userOrders , listOrders , updateStatus , removeOrders };

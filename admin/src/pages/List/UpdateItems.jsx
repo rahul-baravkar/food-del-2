@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { AdminContext } from "../../context/AdminContext";
 
 const UpdateItems = ({ item, onClose, fetchList }) => {
-  const {url} = useContext(AdminContext)
+  const { url } = useContext(AdminContext);
   const [data, setData] = useState({
     name: "",
     category: "",
@@ -38,8 +38,8 @@ const UpdateItems = ({ item, onClose, fetchList }) => {
 
       if (response.data.success) {
         toast.success("Updated Successfully");
-        fetchList();   // refresh list
-        onClose();     // close modal
+        fetchList(); // refresh list
+        onClose(); // close modal
       } else {
         toast.error("Update failed");
       }
@@ -51,52 +51,55 @@ const UpdateItems = ({ item, onClose, fetchList }) => {
 
   return (
     // 🔥 BACKDROP
-    <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
-
+    <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50 px-4">
       {/* MODAL BOX */}
-      <div className="bg-white p-6 rounded-lg w-[400px] shadow-lg">
+      <div className="bg-white w-full max-w-md p-4 md:p-6 rounded-lg shadow-lg">
+        <h2 className="text-lg md:text-xl font-bold mb-4 text-center md:text-left">
+          Update Food
+        </h2>
 
-        <h2 className="text-xl font-bold mb-4">Update Food</h2>
-
+        {/* Name */}
         <input
           type="text"
           name="name"
           value={data.name}
           onChange={onChangeHandler}
           placeholder="Food Name"
-          className="w-full border p-2 mb-3 rounded"
+          className="w-full border p-2 md:p-3 mb-3 rounded text-sm md:text-base"
         />
 
+        {/* Category */}
         <input
           type="text"
           name="category"
           value={data.category}
           onChange={onChangeHandler}
           placeholder="Category"
-          className="w-full border p-2 mb-3 rounded"
+          className="w-full border p-2 md:p-3 mb-3 rounded text-sm md:text-base"
         />
 
+        {/* Price */}
         <input
           type="number"
           name="price"
           value={data.price}
           onChange={onChangeHandler}
           placeholder="Price"
-          className="w-full border p-2 mb-3 rounded"
+          className="w-full border p-2 md:p-3 mb-3 rounded text-sm md:text-base"
         />
 
         {/* BUTTONS */}
-        <div className="flex justify-end gap-3 mt-4">
+        <div className="flex flex-col sm:flex-row justify-end gap-2 mt-4">
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-gray-300 rounded"
+            className="w-full sm:w-auto px-4 py-2 bg-gray-300 rounded text-sm md:text-base"
           >
             Cancel
           </button>
 
           <button
             onClick={updateFood}
-            className="px-4 py-2 bg-green-500 text-white rounded"
+            className="w-full sm:w-auto px-4 py-2 bg-green-500 text-white rounded text-sm md:text-base"
           >
             Update
           </button>

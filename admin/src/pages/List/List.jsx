@@ -1,12 +1,10 @@
-
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import UpdateItems from "./UpdateItems";
 import { AdminContext } from "../../context/AdminContext";
 const List = () => {
-  const {url} = useContext(AdminContext)
-  
+  const { url } = useContext(AdminContext);
 
   const [list, setList] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null); // ✅ FOR MODAL
@@ -41,64 +39,67 @@ const List = () => {
     fetchList();
   }, []);
 
-  return (
-    <div className="list mt-12 ml-72 w-[1060px]">
-      
-      {/* Header */}
-      <div className="food-list">
-        <p className="font-bold text-black text-xl">All Food List</p>
 
-        <div className="grid grid-cols-6 mt-4 text-gray-700 font-semibold px-4">
-          <p>Image</p>
+
+  return (
+    <div className="w-full px-4 mt-4 md:mt-10 pb-20">
+      {/* 🔥 SCROLLABLE TABLE */}
+      <div className="w-full overflow-x-auto overscroll-x-contain">
+        {/* Header */}
+        <div className="grid min-w-[600px] text-black font-semibold text-xs md:text-sm grid-cols-[2fr_2fr_1fr_1fr_1fr_1fr] gap-2">
+          <p>Img</p>
           <p>Name</p>
           <p>Category</p>
-          <p>Price</p>
-          <p className="text-center">Action</p>
+          <p>₹</p>
+          <p className="text-center">Delete</p>
           <p className="text-center">Edit</p>
         </div>
 
-        <hr className="mt-2 border-gray-400" />
+        <hr className="my-2" />
+
+        {/* Items */}
+        {list.map((item) => (
+          <div key={item._id} className="border-b py-2">
+            <div className="grid min-w-[600px] items-center grid-cols-[2fr_2fr_1fr_1fr_1fr_1fr] gap-2 text-xs md:text-sm">
+              {/* Image */}
+              <div className="flex items-center gap-2">
+                <img
+                  className="w-10 h-10 md:w-12 md:h-12 object-cover rounded"
+                  src={`${url}/images/` + item.image}
+                  alt=""
+                />
+              </div>
+
+              {/* Name */}
+              <p className="truncate">{item.name}</p>
+
+              {/* Category */}
+              <p className="truncate">{item.category}</p>
+
+              {/* Price */}
+              <p>₹{item.price}</p>
+
+              {/* Delete */}
+              <button
+                onClick={() => removeFood(item._id)}
+                className="text-red-500 font-bold text-sm text-center"
+              >
+                ✕
+              </button>
+
+              {/* Edit */}
+              <button
+                onClick={() => setSelectedItem(item)}
+                className="text-blue-500 text-xs md:text-sm text-center"
+              >
+                Edit
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
 
-      {/* Food Items */}
-      {list.map((item) => (
-        <div
-          key={item._id}
-          className="grid grid-cols-6 items-center gap-5 border border-gray-300 px-4 py-2 mt-2 rounded-md"
-        >
-          <img
-            className="w-14 h-14 object-cover rounded-md border"
-            src={`${url}/images/` + item.image}
-            alt=""
-          />
-
-          <p>{item.name}</p>
-          <p>{item.category}</p>
-          <p>₹{item.price} kg</p>
-
-          {/* DELETE */}
-          <div className="flex justify-center">
-            <button
-              onClick={() => removeFood(item._id)}
-              className="text-red-600 text-sm hover:text-red-800"
-            >
-              ✕
-            </button>
-          </div>
-
-          {/* EDIT */}
-          <div className="flex justify-center">
-            <button
-              onClick={() => setSelectedItem(item)} // ✅ OPEN MODAL
-              className="text-blue-600 text-sm hover:text-blue-800"
-            >
-              Edit
-            </button>
-          </div>
-        </div>
-      ))}
-
-      {/* ✅ POPUP MODAL */}
+      {/* Modal */}
       {selectedItem && (
         <UpdateItems
           item={selectedItem}

@@ -6,7 +6,7 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
   // const url = "https://food-del-2-backend-znom.onrender.com";
 
-  const url = "https://food-del-2-backend-znom.onrender.com";
+  const url = "http://localhost:4000";
 
   // ✔ FIX: token should NOT be " "
   const [token, setToken] = useState("");

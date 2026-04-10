@@ -1,33 +1,48 @@
-import { assets } from "../../assets/assets";
 import React from "react";
-import "./Sidebar.css";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { assets } from "../../assets/assets";
+
 const Sidebar = () => {
   return (
-    <div className="sidebar">
-      <div className="sidebar-options">
-        <NavLink to="/add">
-          <div className="sidebar-option hover:bg-red-100 transition-all duration-300 hover:border-red-300">
-            <img src={assets.add_icon} alt="" />
-            <p>Add Items</p>
-          </div>
-        </NavLink>
+<div className="fixed top-[70px] left-0 w-[220px] h-[calc(100vh-64px)] bg-white border-r shadow-sm">
 
-        <NavLink className="" to="/list">
-          <div className="sidebar-option hover:bg-red-100 transition-all duration-400  hover:border-red-300">
-            <img src={assets.order_icon} alt="" />
-            <p>List Items</p>
-          </div>
-        </NavLink>
+  <div className="p-4 mt-7 flex flex-col gap-4">
 
-        <NavLink to="/order">
-          <div className="sidebar-option hover:bg-red-100 transition-all duration-400  hover:border-red-300">
-            <img src={assets.order_icon} alt="" />
-            <p>Orders Items</p>
-          </div>
-        </NavLink>
-      </div>
-    </div>
+    <NavLink to="/add">
+      {({ isActive }) => (
+        <div className={`flex items-center gap-3 p-2 rounded-lg cursor-pointer
+          ${isActive ? "bg-red-100 border-l-4 border-red-400" : "hover:bg-red-50"}
+        `}>
+          <img src={assets.add_icon} className="w-5" />
+          <p>Add Items</p>
+        </div>
+      )}
+    </NavLink>
+
+    <NavLink to="/list">
+      {({ isActive }) => (
+        <div className={`flex items-center gap-3 p-2 rounded-lg cursor-pointer
+          ${isActive ? "bg-red-100 border-l-4 border-red-400" : "hover:bg-red-50"}
+        `}>
+          <img src={assets.order_icon} className="w-5" />
+          <p>List Items</p>
+        </div>
+      )}
+    </NavLink>
+
+    <NavLink to="/order">
+      {({ isActive }) => (
+        <div className={`flex items-center gap-3 p-2 rounded-lg cursor-pointer
+          ${isActive ? "bg-red-100 border-l-4 border-red-400" : "hover:bg-red-50"}
+        `}>
+          <img src={assets.order_icon} className="w-5" />
+          <p>Orders</p>
+        </div>
+      )}
+    </NavLink>
+
+  </div>
+</div>
   );
 };
 

@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { assets } from "../../assets/assets";
 import { AdminContext } from "../../context/AdminContext";
+import { toast } from "react-toastify";
 
 const Orders = () => {
   const [data, setData] = useState([]);
-  const {url} = useContext(AdminContext)
+  const { url } = useContext(AdminContext);
 
   const fetchAllOrders = async () => {
     const response = await axios.get(url + "/api/order/list");
@@ -21,15 +22,36 @@ const Orders = () => {
       orderId,
       status: event.target.value,
     });
-    console.log(event.target.value);
+    toast.success(response.data.message)
+    console.log();
 
     if (response.data.success) {
       fetchAllOrders();
     }
   };
 
+  const removeOrders = async (id) => {
+    try {
+      const confirmDelete = window.confirm("Delete this order?");
+      if (!confirmDelete) return;
+
+      const response = await axios.post(url + "/api/order/remove", {
+        id,
+      });
+
+      if (response.data.success) {
+        toast.error(response.data.message)
+        fetchAllOrders();
+      } else {
+       toast.error(response.data.message)
+      }
+    } catch (error) {
+      console.log(error);
+      alert("Error ❌");
+    }
+  };
   return (
-    <div className="container mx-auto w-full max-w-[1080px] px-4 mt-10 pb-36">
+    <div className="container mx-auto w-full ml-72 max-w-[1080px] px-4 mt-10 pb-36">
       <h1 className="font-bold text-black text-2xl">My Orders</h1>
 
       <div className="flex flex-col gap-4 mt-6">
@@ -39,7 +61,7 @@ const Orders = () => {
             className="
               bg-white border rounded-xl p-4
               flex flex-col gap-4
-              md:grid md:grid-cols-[1fr_3fr_1fr_1fr_1fr] md:items-center
+              md:grid md:grid-cols-[1fr_3fr_1fr_1fr_1fr_1fr] md:items-center
             "
           >
             {/* Image */}
@@ -96,6 +118,13 @@ const Orders = () => {
               <option value="Out for delivery">Out for delivery</option>
               <option value="delivered">Delivered</option>
             </select>
+
+            <button
+              onClick={() => removeOrders(order._id)}
+              className="cursor-pointer"
+            >
+              ❌
+            </button>
           </div>
         ))}
       </div>

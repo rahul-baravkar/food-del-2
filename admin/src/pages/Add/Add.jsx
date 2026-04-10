@@ -58,7 +58,7 @@ const Add = () => {
   };
 
   return (
-    <form onSubmit={onSubmitHandler} className="add-container mt-12 ml-12">
+    <form onSubmit={onSubmitHandler} className="add-container mt-12 ml-72">
       {/* Upload Image */}
       <div className="upload-image w-32">
         <h1 className="text-gray-500 mb-1">Upload Image</h1>

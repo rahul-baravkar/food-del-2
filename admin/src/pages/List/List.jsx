@@ -42,7 +42,7 @@ const List = () => {
   }, []);
 
   return (
-    <div className="list mt-12 ml-16 w-[1060px]">
+    <div className="list mt-12 ml-72 w-[1060px]">
       
       {/* Header */}
       <div className="food-list">

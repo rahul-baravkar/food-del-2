@@ -1,4 +1,4 @@
-import { adminUser, loginUser, registerUser } from "../controllers/userController.js";
+import { adminUser, loginUser, RegisterAdmin, registerUser } from "../controllers/userController.js";
 import express from "express";
 
 // CREATE ROUTE
@@ -13,6 +13,8 @@ userRouter.post("/login" , loginUser)
 userRouter.post("/register" , registerUser)
 
 userRouter.post("/admin" , adminUser)
+
+userRouter.post("/adminRegister", RegisterAdmin)
 
 
 export default userRouter

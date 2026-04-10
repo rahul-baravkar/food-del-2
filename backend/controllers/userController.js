@@ -99,27 +99,59 @@ const registerUser = async (req, res) => {
 
 }
 
+const RegisterAdmin = async (req, res) => {
+  const { name, email, password } = req.body;
+
+  try {
+    // check existing admin
+    const exists = await adminModel.findOne({ email });
+    if (exists) {
+      return res.json({ success: false, message: "Admin already exists" });
+    }
+
+    // hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // create admin
+    const newAdmin = new adminModel({
+      name,
+      email,
+      password: hashedPassword,
+    });
+
+    await newAdmin.save();
+
+    res.json({
+      success: true,
+      message: "Admin Registered Successfully ✅",
+    });
+
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error" });
+  }
+};
+
+
 
 const adminUser = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const adminEmail = process.env.ADMIN_EMAIL;
-    const adminPassword = process.env.ADMIN_PASSWORD;
+    const admin = await adminModel.findOne({ email });
 
-    // DEBUG (add this 👇)
-    
-
-    if (email !== adminEmail) {
+    if (!admin) {
       return res.json({ success: false, message: "Admin not Exist" });
     }
 
-    // if plain password
-    if (password !== adminPassword) {
+    // compare password
+    const isMatch = await bcrypt.compare(password, admin.password);
+
+    if (!isMatch) {
       return res.json({ success: false, message: "Invalid Credentials" });
     }
 
-    const token = createToken(email);
+    const token = createToken(admin._id);
 
     res.json({
       success: true,
@@ -133,4 +165,4 @@ const adminUser = async (req, res) => {
   }
 };
 
-export { loginUser, registerUser , adminUser }
+export { loginUser, registerUser , adminUser , RegisterAdmin};

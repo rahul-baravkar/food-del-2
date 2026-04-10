@@ -6,6 +6,7 @@ import { StoreContext } from "@/context/StoreContext";
 import { Search, ShoppingCart, User } from "lucide-react";
 
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Navbar = ({ setShowLogin }) => {
   const navigate = useNavigate();
@@ -16,21 +17,22 @@ const Navbar = ({ setShowLogin }) => {
   const logout = () => {
     localStorage.removeItem("token");
     setToken("");
+    toast("User Logout Successfull ✅ ")
     useNavigate("/");
   };
   return (
     <div className="w-full fixed top-0 left-0 bg-white shadow z-[999]  ">
       <div className="max-w-6xl mx-auto h-20 grid grid-cols-[1fr_1fr_1fr] px-6 items-center ">
         {/* Logo */}
-        <Link to="/">
+        <a href="#Header-bar" to="/">
           <img src={logo} alt="" className="w-32 h-24 inline-block" />
-        </Link>
+        </a>
 
         {/* Menu */}
         <ul className="text-black flex items-center justify-evenly">
-          <NavLink to="/">
+          <Link to="/">
             <li>Home</li>
-          </NavLink>
+          </Link>
           <a href="#menu-bar">
             <li>Menu</li>
           </a>
@@ -43,9 +45,9 @@ const Navbar = ({ setShowLogin }) => {
         </ul>
 
         <div className="flex justify-end gap-4">
-          <Search className=" mt-1 w-9 h-9"/>
+          <Search className="  w-9 h-9"/>
           <Link to="/cart">
-            <ShoppingCart className="w-9 h-9 mt-1"/>
+            <ShoppingCart className="w-9 h-9 "/>
           </Link>
 
           {getTotalAmount() > 0 && (
@@ -89,6 +91,7 @@ const Navbar = ({ setShowLogin }) => {
                   <li className="flex items-center gap-2 hover:bg-gray-100 p-2 rounded-md cursor-pointer">
                     <Search className="w-7 h-7"/>
                     <p onClick={logout}>Logout</p>
+                    
                   </li>
                 </ul>
               </div>

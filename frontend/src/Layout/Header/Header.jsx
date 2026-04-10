@@ -4,7 +4,7 @@ import headerImg from "@/assets/frontend_assets/vegies.png";
 
 const Header = () => {
   return (
-    <div className="my-28 w-full">
+    <div className="my-28 w-full" id="Header-bar">
       <div className="relative m-[30px]">
         <img
           className="h-[38vw] w-[80vw] ml-20 rounded-xl "
@@ -17,14 +17,17 @@ const Header = () => {
             Fresh Vegetables Delivered to <br /> Your Doorstep
           </h1>
 
-          <p className="leading-relaxed">
+          <p  className="leading-relaxed">
             Choose from a wide range of farm-fresh vegetables sourced directly <br/>
             from trusted farmers. We ensure quality, freshness, and timely <br/>
             delivery to make your cooking healthy and easy.
           </p>
 
-          <Button className="bg-white text-black mt-8" variant="outline">
+
+          <Button  className="bg-white text-black mt-8" variant="outline" >
+            <a href="#menu-bar">
             View Menu
+            </a>
           </Button>
         </div>
       </div>

@@ -42,12 +42,14 @@ const PlaceOrder = () => {
     
     let response = await axios.post(url+"/api/order/place" , orderData , {headers:{token}})
     if(response.data.success){
+      console.log("Order Data:" ,response.data)
       const {session_url} = response.data;
       window.location.replace(session_url)
 
     }
 
     else{
+      console.log(response.data.message)
       alert("Error")
     }
 
@@ -65,8 +67,6 @@ const PlaceOrder = () => {
 
       }
     })
-
-
 
   const onChangeHandler = (event) => {
     const name = event.target.name;
@@ -86,6 +86,7 @@ const PlaceOrder = () => {
         {/* NAME FIELDS */}
         <div className="input-fields flex flex-col md:flex-row gap-2">
           <input
+            required
             onChange={onChangeHandler}
             name="firstName"
             value={data.firstName}
@@ -95,6 +96,7 @@ const PlaceOrder = () => {
           />
 
           <input
+            required
             onChange={onChangeHandler}
             name="lastName"
             value={data.lastName}
@@ -106,6 +108,7 @@ const PlaceOrder = () => {
 
         {/* EMAIL */}
         <input
+          required
           onChange={onChangeHandler}
           name="email"
           value={data.email}
@@ -116,6 +119,7 @@ const PlaceOrder = () => {
 
         {/* STREET */}
         <input
+          required
           onChange={onChangeHandler}
           name="street"
           value={data.street}
@@ -127,6 +131,7 @@ const PlaceOrder = () => {
         {/* CITY & STATE */}
         <div className="input-fields flex flex-col md:flex-row gap-2">
           <input
+            required
             onChange={onChangeHandler}
             name="city"
             value={data.city}
@@ -136,6 +141,7 @@ const PlaceOrder = () => {
           />
 
           <input
+            required
             onChange={onChangeHandler}
             name="state"
             value={data.state}
@@ -147,16 +153,19 @@ const PlaceOrder = () => {
 
         {/* ZIP */}
         <input
+
+          required
           onChange={onChangeHandler}
           name="zipCode"
           value={data.zipCode}
           className="py-2 px-4 w-full my-2 rounded-sm border border-gray-400"
-          type="text"
+          type="number"
           placeholder="Zip Code"
         />
 
         {/* COUNTRY */}
         <input
+           required
           onChange={onChangeHandler}
           name="country"
           value={data.country}
@@ -167,11 +176,12 @@ const PlaceOrder = () => {
 
         {/* PHONE */}
         <input
+          required
           onChange={onChangeHandler}
           name="phone"
           value={data.phone}
           className="py-2 px-4 w-full my-2 rounded-sm border border-gray-400"
-          type="text"
+          type="number"
           placeholder="Phone"
         />
 

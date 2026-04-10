@@ -1,73 +1,64 @@
-import React, { useState, useContext } from 'react'
-import { assets } from '@/assets/frontend_assets/assets'
-import { StoreContext } from '@/context/StoreContext';
-import axios from "axios"
+import React, { useState, useContext } from "react";
+import { assets } from "@/assets/frontend_assets/assets";
+import { StoreContext } from "@/context/StoreContext";
+import axios from "axios";
+import { toast } from "react-toastify";
 const Login = ({ setShowLogin }) => {
   const [currState, setCurrState] = useState("Login");
-  const { url, setToken } = useContext(StoreContext)
+  const { url, setToken } = useContext(StoreContext);
 
   const [data, setData] = useState({
     name: "",
     email: "",
-    password: ""
-  })
-
+    password: "",
+  });
 
   // FUNCTION FOR INPUT FIELDS
   const onChangeHandler = (event) => {
     const name = event.target.name;
     const value = event.target.value;
 
-    setData(data => ({ ...data, [name]: value }));
-  }
-
-
-
-
+    setData((data) => ({ ...data, [name]: value }));
+  };
 
   // Create function for store Login and Register data on database
   const onLogin = async (event) => {
-
     // page relode handle
-    event.preventDefault()
+    event.preventDefault();
     let newUrl = url;
 
     if (currState === "Login") {
-
       newUrl += "/api/user/login";
     } else {
-      newUrl += "/api/user/register"
+      newUrl += "/api/user/register";
     }
 
     //api call
     const response = await axios.post(newUrl, data);
-    
+    if (response.data.success) {
+      if (currState === "Login") {
+        toast.success(response.data.message);
+      } else {
+        toast.success(response.data.message);
+      }
+    }
 
     if (response.data.success) {
-
       setData({ name: "", email: "", password: "" });
 
       setShowLogin(false);
-      setToken(response.data.token)
-      localStorage.setItem("token", response.data.token)
-
-
-
+      setToken(response.data.token);
+      localStorage.setItem("token", response.data.token);
     } else {
-      alert(response.data.message)
-
+      toast(response.data.message);
     }
-
-  }
+  };
   return (
     // Overlay
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-
       {/* Popup */}
       <form onSubmit={onLogin}>
         <div className="bg-white w-[400px] p-8 rounded-2xl shadow-xl relative">
-
-
           {/* Title + Close Button */}
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-2xl font-bold">{currState}</h1>
@@ -104,7 +95,7 @@ const Login = ({ setShowLogin }) => {
 
             <input
               onChange={onChangeHandler}
-              name='password'
+              name="password"
               value={data.password}
               type="password"
               placeholder="Password"
@@ -113,7 +104,10 @@ const Login = ({ setShowLogin }) => {
           </div>
 
           {/* Button */}
-          <button type='submit' className="w-full mt-6 bg-red-400 text-white py-2 rounded-lg hover:bg-red-500 transition">
+          <button
+            type="submit"
+            className="w-full mt-6 bg-red-400 text-white py-2 rounded-lg hover:bg-red-500 transition"
+          >
             {currState === "Sign Up" ? "Create Account" : "Login"}
           </button>
 
@@ -149,11 +143,8 @@ const Login = ({ setShowLogin }) => {
               </>
             )}
           </p>
-
         </div>
-
       </form>
-
     </div>
   );
 };

@@ -14,7 +14,7 @@ const FoodDisply = ({ category }) => {
         Fresh Vegetables Near You
       </h1>
 
-      <div className="mx-24 grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-6 mt-5">
+      <div  className="mx-20 grid grid-cols-[repeat(auto-fill,minmax(240px,1fr))] gap-8 mt-5">
         {food_list.map((item) => {
           if (category === "All" || category === item.category) {
             console.log(item._id);

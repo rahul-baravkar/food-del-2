@@ -16,7 +16,7 @@ const ExploreMenu = ({ category, setCategory }) => {
 
     
 
-<div className="menu-list flex gap-6 mt-6 overflow-x-auto pb-2">
+<div className="menu-list flex gap-5 mt-6 overflow-x-auto pb-2">
 
   {menu_list.map((item, index) => (
     <div
@@ -26,7 +26,7 @@ const ExploreMenu = ({ category, setCategory }) => {
           prev === item.menu_name ? "All" : item.menu_name
         )
       }
-      className={`flex flex-col items-center cursor-pointer transition-all duration-300`}
+      className={`flex ml-6 flex-col items-center cursor-pointer transition-all duration-300`}
     >
       
       {/* Image */}

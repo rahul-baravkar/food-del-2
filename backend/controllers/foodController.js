@@ -2,39 +2,74 @@ import foodModel from "../models/foodModel.js";
 import fs from 'fs'
 
 /**************************************** ADD FOOD *************************************/
+// const addFood = async (req, res) => {
+
+//        if (!req.file) {
+//         return res.status(400).json({
+//             success: false,
+//             message: "Image file is required"
+//         });
+//     }
+
+
+//     console.log(req.body)
+//     console.log(req.file)
+//     let image_filename = `${req.file.filename}`;
+
+//     const food = new foodModel({
+//         name: req.body.name,
+//         description: req.body.description,
+//         price: Number(req.body.price),
+//         category: req.body.category,
+//         image: image_filename
+//     })
+
+//  try {
+//     const savedFood = await food.save();
+
+//     console.log("✅ SAVED:", savedFood); // 👈 MUST PRINT
+
+//     res.json({ success: true, message: "Food Added" });
+
+// } catch (error) {
+//     console.log("❌ SAVE ERROR FULL:", error); // 👈 FULL ERROR
+//     res.status(500).json({ success: false, message: error.message });
+// }
+
+// }
+
 const addFood = async (req, res) => {
 
-       if (!req.file) {
+    if (!req.file) {
         return res.status(400).json({
             success: false,
             message: "Image file is required"
         });
     }
 
-
-    // console.log(req.body)
-    // console.log(req.file)
-    let image_filename = `${req.file.filename}`;
-
-    const food = new foodModel({
-        name: req.body.name,
-        description: req.body.description,
-        price: req.body.price,
-        category: req.body.category,
-        image: image_filename
-    })
+    console.log("BODY:", req.body);
+    console.log("FILE:", req.file);
 
     try {
-        await food.save()
-        res.json({ success: true, message: "Food Added" })
+        const food = new foodModel({
+            name: req.body.name,
+            description: req.body.description,
+            price: Number(req.body.price), // ✅ IMPORTANT FIX
+            category: req.body.category,
+            image: req.file.filename
+        });
+
+        const savedFood = await food.save();
+
+        console.log("✅ SAVED:", savedFood);
+
+        res.json({ success: true, message: "Food Added" });
 
     } catch (error) {
-        console.log(error)
-        res.json({ success: false, message: "Error" })
-
+        console.log("❌ FULL ERROR:", error); // 👈 THIS WILL REVEAL EVERYTHING
+        res.status(500).json({ success: false, message: error.message });
     }
-
-}
+};
 
 
 /**************************************** LIST FOOD *************************************/

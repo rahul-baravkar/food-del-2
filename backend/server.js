@@ -1,3 +1,4 @@
+
 // used to APIs build and web server 
 import express from 'express'
 import path from 'path'
@@ -45,9 +46,6 @@ app.use("/api/cart" , cartRouter)
 app.use("/api/order" , orderRouter)
 
 app.use("/images" , express.static("uploads"))
-
-
-
 
 //for testing route
 app.get("/" , (req ,res) => {

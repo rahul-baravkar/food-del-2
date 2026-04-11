@@ -1,39 +1,4 @@
 
-// import express from "express";
-// import multer from "multer";
-// import { addFood, foodList, removeItems, updateItems } from "../controllers/foodController.js";
-
-// const foodRouter = express.Router();
-
-// // ---- MULTER STORAGE ----
-// const storage = multer.diskStorage({
-//     destination: (req, file, cb) => {
-//         cb(null, "uploads/");
-//     },
-//     filename: (req, file, cb) => {
-//         cb(null, file.originalname);
-//     }
-// });
-
-// const upload = multer({ storage });
-
-// // ---- ROUTE ----
-
-// // this route add food items in database
-// foodRouter.post("/add", upload.single("image"), addFood);
-
-// // and this list route will be fetch/ find all the food list into the database
-// foodRouter.get("/list" , foodList )
-
-// // remove item route
-// foodRouter.post("/remove" , removeItems)
-
-// // Edit item route
-// foodRouter.post("/update" , updateItems)
-
-
-// export default foodRouter;
-
 
 import express from "express";
 import multer from "multer";
@@ -45,9 +10,9 @@ const foodRouter = express.Router();
 
 // ---- CLOUDINARY CONFIG ----
 cloudinary.config({
-    cloud_name: process.env.CLOUD_NAME,
-    api_key: process.env.API_KEY,
-    api_secret: process.env.API_SECRET,
+    cloud_name: 'dyqa7pche',
+    api_key: "677686526437959",
+    api_secret: "J_socyPTyAE2hptFEWKdoXz2kGU",
 });
 
 // ---- MULTER CLOUDINARY STORAGE ----
@@ -62,7 +27,18 @@ const storage = new CloudinaryStorage({
 const upload = multer({ storage });
 
 // ---- ROUTES ----
-foodRouter.post("/add", upload.single("image"), addFood);
+foodRouter.post("/add", (req, res, next) => {
+    upload.single("image")(req, res, function (err) {
+        if (err) {
+            console.log("❌ UPLOAD ERROR:", err);
+            return res.status(500).json({
+                success: false,
+                message: err.message
+            });
+        }
+        next();
+    });
+}, addFood);
 foodRouter.get("/list", foodList);
 foodRouter.post("/remove", removeItems);
 foodRouter.post("/update", updateItems);

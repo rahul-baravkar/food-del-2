@@ -11,7 +11,8 @@ import PlaceOrder from "./Pages/PlaceOrder/PlaceOrder";
 import Cart from "./Pages/Cart/Cart";
 import Verify from "./Pages/Verify/Verify";
 import MyOrders from "./Pages/MyOrders/MyOrders";
-import { ToastContainer, Slide, Zoom, Bounce, Flip } from "react-toastify";import { useContext } from "react";
+import { ToastContainer, Slide, Zoom, Bounce, Flip } from "react-toastify";
+import { useContext } from "react";
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
@@ -20,7 +21,7 @@ function App() {
     <>
       <div>
         <ToastContainer
-          position="bottom-right"
+          position="top-right"
           autoClose={2000}
           hideProgressBar={false}
           newestOnTop={true}

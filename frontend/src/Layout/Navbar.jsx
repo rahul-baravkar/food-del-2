@@ -25,6 +25,7 @@ const Navbar = ({ setShowLogin }) => {
     <>
       {/* Navbar */}
       <div className="w-full fixed top-0 left-0 bg-white shadow z-[999]">
+        
         <div className="max-w-6xl mx-auto h-16 md:h-20 flex items-center justify-between px-4 md:px-6">
           
           {/* Left Section (Logo + Mobile Menu Button) */}
@@ -63,6 +64,7 @@ const Navbar = ({ setShowLogin }) => {
                 <div className="absolute -top-1 -right-1 bg-red-600 w-2 h-2 rounded-full"></div>
               )}
             </Link>
+
 
             {!token ? (
               <Button
@@ -110,19 +112,19 @@ const Navbar = ({ setShowLogin }) => {
         {mobileMenu && (
           <div className="md:hidden bg-white shadow px-6 py-4 space-y-4">
             <Link to="/" onClick={() => setMobileMenu(false)}>
-              <p>Home</p>
+              <p className="py-1 px-2 text-amber-950 font-semibold">Home</p>
             </Link>
 
             <a href="#menu-bar" onClick={() => setMobileMenu(false)}>
-              <p>Menu</p>
+              <p className="py-1 px-2 text-amber-950 font-semibold">Menu</p>
             </a>
 
             <a href="#mobile-app" onClick={() => setMobileMenu(false)}>
-              <p>Mobile-app</p>
+              <p className="py-1 px-2 text-amber-950 font-semibold">Mobile-app</p>
             </a>
 
             <a href="#footer" onClick={() => setMobileMenu(false)}>
-              <p>Contact-us</p>
+              <p className="py-1 px-2 text-amber-950 font-semibold">Contact-us</p>
             </a>
 
             {!token ? (

@@ -20,20 +20,20 @@ const ExploreMenu = ({ category, setCategory }) => {
       </p>
 
       {/* Menu List */}
-      <div className="flex gap-4 mt-4 overflow-x-auto pb-2 scrollbar-hide">
+      <div className="flex gap-14 mt-4 overflow-x-auto pb-2 scrollbar-hide">
         {menu_list.map((item, index) => (
           <div
             key={index}
             onClick={() =>
               setCategory((prev) =>
-                prev === item.menu_name ? "All" : item.menu_name
+                prev === item.menu_name ? "All" : item.menu_name,
               )
             }
             className="flex flex-col items-center cursor-pointer transition-all duration-300 min-w-[90px]"
           >
             {/* Image */}
             <div
-              className={`w-20 h-20 md:w-28 md:h-28 rounded-full p-[3px] transition-all duration-300
+              className={`w-20 h-20 md:w-32 md:h-32 rounded-full p-[3px] transition-all duration-300
               ${
                 category === item.menu_name
                   ? "bg-red-500 scale-105 shadow-lg"
@@ -51,9 +51,7 @@ const ExploreMenu = ({ category, setCategory }) => {
             <p
               className={`mt-2 text-xs md:text-sm font-medium text-center transition-all duration-300
               ${
-                category === item.menu_name
-                  ? "text-red-600"
-                  : "text-gray-600"
+                category === item.menu_name ? "text-red-600" : "text-gray-600"
               }`}
             >
               {item.menu_name}

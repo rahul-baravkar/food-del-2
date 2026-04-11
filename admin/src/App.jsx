@@ -25,7 +25,6 @@ const App = () => {
 
   return (
     <div>
-
       {/* Toast */}
       <ToastContainer
         position="top-center"
@@ -50,7 +49,6 @@ const App = () => {
           )}
 
           <div className="flex">
-
             {/* Sidebar */}
             <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
 
@@ -63,7 +61,6 @@ const App = () => {
                 <Route path="/update/:id" element={<UpdateItems />} />
               </Routes>
             </div>
-
           </div>
         </>
       ) : (

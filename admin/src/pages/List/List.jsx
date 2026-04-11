@@ -39,8 +39,6 @@ const List = () => {
     fetchList();
   }, []);
 
-
-
   return (
     <div className="w-full px-4 mt-4 md:mt-10 pb-20">
       {/* 🔥 SCROLLABLE TABLE */}

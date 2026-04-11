@@ -26,7 +26,7 @@ const FoodDisply = ({ category }) => {
                   <div>
                     <img
                       className="w-full h-32 md:h-40 object-cover rounded"
-                      src={url + "/images/" + item.image}
+                      src={item.image}
                       alt="food_image"
                     />
                   </div>

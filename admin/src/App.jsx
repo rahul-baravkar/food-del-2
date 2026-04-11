@@ -28,7 +28,7 @@ const App = () => {
 
       {/* Toast */}
       <ToastContainer
-        position="bottom-right"
+        position="top-center"
         autoClose={2000}
         newestOnTop={true}
         closeOnClick
